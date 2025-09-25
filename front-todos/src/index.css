@@ -1,0 +1,147 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Todo List App Design System - Modern productivity theme */
+
+@layer base {
+  :root {
+    /* Core Background Colors */
+    --background: 240 10% 99%;
+    --foreground: 215 25% 15%;
+
+    /* Card System */
+    --card: 0 0% 100%;
+    --card-foreground: 215 25% 15%;
+
+    /* Interactive Elements */
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 25% 15%;
+
+    /* Primary Brand - Professional Blue */
+    --primary: 213 94% 55%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 213 94% 45%;
+
+    /* Secondary - Soft Gray */
+    --secondary: 210 15% 96%;
+    --secondary-foreground: 215 25% 25%;
+
+    /* Success & Task States */
+    --success: 145 63% 45%;
+    --success-foreground: 0 0% 100%;
+    --success-light: 145 60% 95%;
+
+    /* Warning */
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+    --warning-light: 38 100% 97%;
+
+    /* Muted Elements */
+    --muted: 210 15% 96%;
+    --muted-foreground: 215 15% 55%;
+
+    /* Accent - Productivity Green */
+    --accent: 145 63% 45%;
+    --accent-foreground: 0 0% 100%;
+
+    /* Destructive */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Borders & Inputs */
+    --border: 214 20% 90%;
+    --input: 214 20% 90%;
+    --ring: 213 94% 55%;
+
+    /* Gradients for modern effects */
+    --gradient-primary: linear-gradient(135deg, hsl(213 94% 55%), hsl(213 94% 45%));
+    --gradient-success: linear-gradient(135deg, hsl(145 63% 45%), hsl(145 63% 35%));
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(210 15% 99%));
+
+    /* Shadows for depth */
+    --shadow-soft: 0 2px 8px -2px hsl(213 94% 55% / 0.1);
+    --shadow-medium: 0 4px 16px -4px hsl(213 94% 55% / 0.15);
+    --shadow-strong: 0 8px 32px -8px hsl(213 94% 55% / 0.2);
+
+    /* Animation speeds */
+    --transition-fast: 150ms ease-out;
+    --transition-medium: 250ms ease-out;
+    --transition-slow: 350ms ease-out;
+
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    /* Dark mode colors */
+    --background: 215 25% 8%;
+    --foreground: 210 15% 95%;
+
+    --card: 215 25% 10%;
+    --card-foreground: 210 15% 95%;
+
+    --popover: 215 25% 10%;
+    --popover-foreground: 210 15% 95%;
+
+    --primary: 213 94% 65%;
+    --primary-foreground: 215 25% 8%;
+    --primary-hover: 213 94% 55%;
+
+    --secondary: 215 25% 15%;
+    --secondary-foreground: 210 15% 85%;
+
+    --success: 145 63% 55%;
+    --success-foreground: 215 25% 8%;
+    --success-light: 145 60% 15%;
+
+    --warning: 38 92% 60%;
+    --warning-foreground: 215 25% 8%;
+    --warning-light: 38 100% 15%;
+
+    --muted: 215 25% 15%;
+    --muted-foreground: 215 15% 65%;
+
+    --accent: 145 63% 55%;
+    --accent-foreground: 215 25% 8%;
+
+    --destructive: 0 84% 70%;
+    --destructive-foreground: 215 25% 8%;
+
+    --border: 215 25% 20%;
+    --input: 215 25% 20%;
+    --ring: 213 94% 65%;
+
+    --gradient-primary: linear-gradient(135deg, hsl(213 94% 65%), hsl(213 94% 55%));
+    --gradient-success: linear-gradient(135deg, hsl(145 63% 55%), hsl(145 63% 45%));
+    --gradient-card: linear-gradient(145deg, hsl(215 25% 10%), hsl(215 25% 12%));
+
+    --shadow-soft: 0 2px 8px -2px hsl(0 0% 0% / 0.2);
+    --shadow-medium: 0 4px 16px -4px hsl(0 0% 0% / 0.3);
+    --shadow-strong: 0 8px 32px -8px hsl(0 0% 0% / 0.4);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  /* Custom component styles using design system */
+  .task-card {
+    @apply bg-card border border-border rounded-lg p-4 shadow-sm hover:shadow-md transition-all duration-200;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-primary-foreground hover:bg-primary/90 px-4 py-2 rounded-lg font-medium transition-colors;
+  }
+
+  .btn-success {
+    @apply bg-success text-success-foreground hover:bg-success/90 px-4 py-2 rounded-lg font-medium transition-colors;
+  }
+}
