@@ -78,7 +78,7 @@ livrable-todo-liste-fullstack/
 
 1. **Clone the repository**
    ```bash
-   git clone <your-github-repo-url>
+   git clone git@github.com:thiernomoontaga/livrable-fullstack-app-todo.git
    cd livrable-todo-liste-fullstack
    ```
 
@@ -252,4 +252,3 @@ If you encounter issues:
 
 ---
 
-**Built with ❤️ for efficient task management and team collaboration**
