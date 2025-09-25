@@ -1,0 +1,48 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  password  String
+  name      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  todos     Todo[]
+  assignedTodos Todo[] @relation("AssignedTodos")
+  logs      TodoLog[]
+}
+
+model Todo {
+  id          Int      @id @default(autoincrement())
+  title       String
+  description String?
+  completed   Boolean  @default(false)
+  ownerId     Int
+  owner       User     @relation(fields: [ownerId], references: [id], onDelete: Cascade)
+  assignedToId Int?
+  assignedTo  User?    @relation("AssignedTodos", fields: [assignedToId], references: [id])
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  logs        TodoLog[]
+}
+
+model TodoLog {
+  id        Int      @id @default(autoincrement())
+  action    String  
+  todoId    Int
+  todo      Todo     @relation(fields: [todoId], references: [id], onDelete: Cascade)
+  userId    Int
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  timestamp DateTime @default(now())
+  details   String? 
+}
+
